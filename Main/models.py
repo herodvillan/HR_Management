@@ -6,4 +6,13 @@ class Department(models.Model):
 
     def __str__(self):
         return self.name
+#phase two
+class Employee(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name="employees")
+    position = models.CharField(max_length=100)
+    date_joined = models.DateField()
+
+    def __str__(self):
+        return self.user.username
 
