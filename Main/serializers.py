@@ -22,3 +22,11 @@ class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = ['id', 'user', 'department', 'position', 'date_joined']
+
+#phase three
+
+class LeaveRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LeaveRequest
+        fields = ['id', 'employee', 'start_date', 'end_date', 'reason', 'approved']
+

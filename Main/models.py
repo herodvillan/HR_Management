@@ -16,3 +16,11 @@ class Employee(models.Model):
     def __str__(self):
         return self.user.username
 
+#phase three
+class LeaveRequest(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="leave_requests")
+    start_date = models.DateField()
+    end_date = models.DateField()
+    reason = models.TextField()
+    approved = models.BooleanField(default=False)
+
