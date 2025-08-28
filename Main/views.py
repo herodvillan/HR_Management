@@ -6,7 +6,7 @@ from .serializers import UserSerializer, DepartmentSerializer
 from .models import Employee #2
 from .serializers import EmployeeSerializer
 from .models import LeaveRequest #3
-from .serializers import LeaveRequesstSerializer
+from .serializers import LeaveRequestSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()

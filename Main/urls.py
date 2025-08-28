@@ -1,5 +1,5 @@
 from rest_framework.routers import DefaultRouter
-from .views import UserViewSet, DepartmentViewSet, EmployeeViewSet
+from .views import UserViewSet, DepartmentViewSet, EmployeeViewSet, LeaveRequestViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
