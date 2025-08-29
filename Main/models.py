@@ -24,3 +24,10 @@ class LeaveRequest(models.Model):
     reason = models.TextField()
     approved = models.BooleanField(default=False)
 
+#phase four
+class DepartmentChangeRequest(models.Model):
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name="change_requests")
+    requested_department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    reason = models.TextField()
+    approved = models.BooleanField(default=False)
+

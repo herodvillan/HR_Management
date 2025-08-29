@@ -28,3 +28,10 @@ class LeaveRequestSerializer(serializers.ModelSerializer):
         model = LeaveRequest
         fields = ['id', 'employee', 'start_date', 'end_date', 'reason', 'approved']
 
+#phase four
+
+class DepartmentChangeRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DepartmentChangeRequest
+        fields = ['id', 'employee', 'requested_department', 'reason', 'approved']
+
