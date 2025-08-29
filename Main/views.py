@@ -7,6 +7,8 @@ from .models import Employee #2
 from .serializers import EmployeeSerializer
 from .models import LeaveRequest #3
 from .serializers import LeaveRequestSerializer
+from .models import DepartmentChangeRequest #4
+from .serializers import DepartmentChangeRequestSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -25,4 +27,9 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class LeaveRequestViewSet(viewsets.ModelViewSet):
     queryset = LeaveRequest.objects.all()
     serializer_class = LeaveRequestSerializer
+
+#phase four
+class DepartmentChangeRequestViewSet(viewsets.ModelViewSet):
+    queryset = DepartmentChangeRequest.objects.all()
+    serializer_class = DepartmentChangeRequestSerializer
 
