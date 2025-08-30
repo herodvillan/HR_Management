@@ -9,6 +9,8 @@ from .models import LeaveRequest #3
 from .serializers import LeaveRequestSerializer
 from .models import DepartmentChangeRequest #4
 from .serializers import DepartmentChangeRequestSerializer
+from rest_framework.permissions import IsAuthenticated #5
+from .permissions import IsOwnerOrAdmin
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -33,3 +35,12 @@ class DepartmentChangeRequestViewSet(viewsets.ModelViewSet):
     queryset = DepartmentChangeRequest.objects.all()
     serializer_class = DepartmentChangeRequestSerializer
 
+#phase five
+class LeaveRequestViewSet(viewsets.ModelViewSet):
+    queryset = LeaveRequest.objects.all()
+    serializer_class = LeaveRequestSerializer
+    permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
+
+    def perform_create(self, serializer):
+        employee = Employee.objects.get(user=self.request.user)
+        serializer.save(employee=employee)
